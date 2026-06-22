@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 72" fill="none" role="img" aria-label="Wally">
+  <text
+    x="0"
+    y="54"
+    font-family="'Nunito', 'Segoe UI Rounded', 'Arial Rounded MT Bold', system-ui, sans-serif"
+    font-size="58"
+    font-weight="800"
+    fill="#6829F8"
+  >W</text>
+  <text
+    x="60"
+    y="54"
+    font-family="'Nunito', 'Segoe UI Rounded', 'Arial Rounded MT Bold', system-ui, sans-serif"
+    font-size="42"
+    font-weight="700"
+    fill="#1C1C28"
+  >a</text>
+  <circle cx="72.5" cy="39" r="7.2" fill="#FFFFFF" />
+  <text
+    x="82"
+    y="54"
+    font-family="'Nunito', 'Segoe UI Rounded', 'Arial Rounded MT Bold', system-ui, sans-serif"
+    font-size="42"
+    font-weight="700"
+    fill="#1C1C28"
+    letter-spacing="-0.02em"
+  >lly</text>
+</svg>
