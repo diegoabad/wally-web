@@ -5,6 +5,9 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Términos y condiciones",
   description: `Términos y condiciones de uso de ${site.name}.`,
+  alternates: {
+    canonical: `${site.url}/terminos`,
+  },
 };
 
 const updatedAt = "9 de junio de 2026";

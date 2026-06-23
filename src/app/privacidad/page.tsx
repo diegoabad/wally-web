@@ -5,6 +5,9 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Política de privacidad",
   description: `Política de privacidad de ${site.name}. Información sobre datos personales, Google OAuth, Drive y Calendar.`,
+  alternates: {
+    canonical: `${site.url}/privacidad`,
+  },
 };
 
 const updatedAt = "9 de junio de 2026";

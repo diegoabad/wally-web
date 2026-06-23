@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Check, Shield, Star } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import {
   PRICING,
   ahorroAnualPrecio,
@@ -27,15 +28,15 @@ function PlanCard({
   return (
     <div className={`relative flex h-full flex-col ${featured ? "pt-3" : ""}`}>
       {featured ? (
-        <span className="absolute right-4 top-0 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase">
+        <span className="absolute right-4 top-0 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase shadow-md shadow-violet-200">
           <Star size={12} aria-hidden />
           Más elegido
         </span>
       ) : null}
 
       <div
-        className={`flex h-full flex-col rounded-2xl border bg-white p-6 shadow-[0_2px_12px_rgba(15,23,42,0.06)] sm:p-7 ${
-          featured ? "border-violet-400 ring-1 ring-violet-200" : "border-gray-200"
+        className={`landing-card flex h-full flex-col p-6 sm:p-7 ${
+          featured ? "border-violet-300 shadow-[0_16px_40px_rgba(104,41,248,0.12)]" : ""
         }`}
       >
         <div>
@@ -84,43 +85,44 @@ export function LandingPricing() {
 
   return (
     <section id="precios" className="scroll-mt-24 bg-[#f4f5f7]">
-      <div className="site-container py-16 lg:py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-semibold tracking-wide text-violet-700 uppercase">
+      <div className="site-container landing-section-block">
+        <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <p className="landing-section-badge uppercase tracking-wide">
             Planes simples y transparentes
           </p>
-          <h2 className="mt-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Probalo gratis y{" "}
-            <span className="text-violet-600">elegí el plan que te convenga</span>
+          <h2 className="landing-section-title mt-4 sm:mt-5">
+            Probá Wally gratis y{" "}
+            <span className="text-violet-600">elegí cómo seguir facturando</span>
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            Usá Wally durante {PRICING.trialDays} días totalmente gratis, sin poner tarjeta de
-            crédito. Después elegís el plan mensual o anual que mejor se adapta a vos.
+          <p className="landing-section-lead">
+            Usá todas las funciones durante {PRICING.trialDays} días: Factura C electrónica,
+            Mercado Pago, programadas y salud fiscal. Sin tarjeta de crédito.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:gap-8">
-          <PlanCard
-            titulo="Mensual"
-            subtitulo="Pagás mes a mes"
-            precio={PRICING.monthlyPriceArs}
-            periodo="/mes"
-          />
-          <PlanCard
-            titulo="Anual"
-            subtitulo="Pagás una vez al año"
-            precio={PRICING.yearlyPriceArs}
-            periodo="/año"
-            featured
-            ahorro={ahorro}
-          />
+          <ScrollReveal delay={60}>
+            <PlanCard
+              titulo="Mensual"
+              subtitulo="Pagás mes a mes"
+              precio={PRICING.monthlyPriceArs}
+              periodo="/mes"
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={120}>
+            <PlanCard
+              titulo="Anual"
+              subtitulo="Pagás una vez al año"
+              precio={PRICING.yearlyPriceArs}
+              periodo="/año"
+              featured
+              ahorro={ahorro}
+            />
+          </ScrollReveal>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <Link
-            href={site.appUrl}
-            className="inline-flex min-h-12 w-full max-w-md items-center justify-center rounded-xl bg-violet-600 px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-violet-700 sm:w-auto"
-          >
+        <ScrollReveal className="mt-10 flex flex-col items-center gap-4" delay={160}>
+          <Link href={site.appUrl} className="landing-btn-primary min-h-12 w-full max-w-md px-8 py-3.5 text-base sm:w-auto">
             Empezar prueba gratis
           </Link>
           <p className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm text-gray-600 shadow-sm">
@@ -131,7 +133,7 @@ export function LandingPricing() {
             </span>
             {PRICING.trialDays} días de prueba incluidos
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

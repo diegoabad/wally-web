@@ -18,28 +18,28 @@ import { site } from "@/lib/site";
 const heroFeatureCards = [
   {
     Icon: FileText,
-    title: "Factura electrónica",
-    body: "Emití Factura C en segundos.",
+    title: "Factura C online",
+    body: "Emití en segundos con ARCA.",
   },
   {
     Icon: CreditCard,
     title: "Mercado Pago",
-    body: "Links de cobro y pagos al instante.",
+    body: "Links de cobro y pagos.",
   },
   {
     Icon: HeartPulse,
-    title: "Control fiscal",
-    body: "Tu categoría y límites siempre a la vista.",
+    title: "Salud fiscal",
+    body: "Categoría y alertas claras.",
   },
   {
     Icon: Bell,
     title: "Facturas programadas",
-    body: "Abonos y honorarios sin olvidos.",
+    body: "Abonos y honorarios.",
   },
   {
     Icon: GraduationCap,
     title: "Aprendé y entendé",
-    body: "Guías simples sobre tus impuestos.",
+    body: "Guías simples de monotributo.",
   },
 ] as const;
 
@@ -67,7 +67,7 @@ const trustBarItems = [
 export function LandingHero() {
   return (
     <section className="relative bg-white">
-      <div className="site-container relative pt-8 pb-6 lg:pt-10 lg:pb-8">
+      <div className="site-container relative pt-5 pb-4 sm:pt-8 sm:pb-6 lg:pt-10 lg:pb-8">
         <div
           className="pointer-events-none absolute inset-x-0 top-0 h-[min(520px,70%)] bg-linear-to-b from-violet-50/70 via-white to-transparent"
           aria-hidden
@@ -77,36 +77,32 @@ export function LandingHero() {
           aria-hidden
         />
 
-        <div className="relative grid items-start gap-10 pb-5 lg:grid-cols-[minmax(0,46%)_minmax(0,54%)] lg:gap-14 lg:pb-7">
+        <div className="relative grid items-start gap-7 pb-4 sm:gap-10 sm:pb-5 lg:grid-cols-[minmax(0,46%)_minmax(0,54%)] lg:gap-14 lg:pb-7">
           <div className="landing-fade-up">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-violet-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm shadow-violet-200">
-            <Zap size={14} aria-hidden className="shrink-0" />
-            Facturación electrónica para monotributistas en Argentina
+          <p className="mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-violet-600 px-3 py-1 text-[0.6875rem] font-semibold leading-snug text-white shadow-sm shadow-violet-200 sm:mb-5 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs">
+            <Zap size={12} aria-hidden className="shrink-0 sm:hidden" />
+            <Zap size={14} aria-hidden className="hidden shrink-0 sm:block" />
+            <span className="sm:hidden">Factura C para monotributo</span>
+            <span className="hidden sm:inline">Factura C electrónica para monotributistas en Argentina</span>
           </p>
 
-          <h1 className="max-w-xl text-[clamp(1.875rem,1.35rem+1.6vw,2.875rem)] font-bold leading-[1.08] tracking-tight text-gray-900">
-            Facturá, cobrá y controlá tu{" "}
-            <span className="text-violet-600">monotributo</span> en un solo lugar
+          <h1 className="max-w-xl text-[clamp(1.5rem,1.25rem+1.4vw,2.875rem)] font-bold leading-[1.12] tracking-tight text-gray-900">
+            Emití Factura C, cobrá y controlá tu{" "}
+            <span className="text-violet-600">monotributo</span> desde Wally
           </h1>
 
-          <p className="mt-5 max-w-lg text-lg leading-relaxed text-gray-600">
-            Wally simplifica tu día a día: emitís Factura C, organizás clientes, generás links de
-            cobro y seguís tu salud fiscal para{" "}
-            <strong className="font-semibold text-violet-700">no pasarte de categoría</strong>.
+          <p className="mt-4 max-w-lg text-[0.9375rem] leading-relaxed text-gray-600 sm:mt-5 sm:text-lg">
+            La plataforma online para monotributistas que reúne facturación electrónica ante ARCA,
+            links de cobro con Mercado Pago, facturas programadas y salud fiscal para{" "}
+            <strong className="font-semibold text-violet-700">trabajar más simple</strong>.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={site.appUrl}
-              className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-violet-200/80 transition hover:bg-violet-700"
-            >
-              Probar 30 días gratis
+          <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3">
+            <Link href={site.appUrl} className="landing-btn-primary w-full justify-center px-5 py-3 text-sm sm:w-auto sm:px-6 sm:py-3.5">
+              Probar Wally gratis 30 días
               <ArrowRight size={16} aria-hidden />
             </Link>
-            <Link
-              href="#como-funciona"
-              className="inline-flex items-center gap-2 rounded-xl border border-violet-200 bg-white px-6 py-3.5 text-sm font-semibold text-violet-700 transition hover:border-violet-300 hover:bg-violet-50"
-            >
+            <Link href="#como-funciona" className="landing-btn-secondary w-full justify-center px-5 py-3 text-sm sm:w-auto sm:px-6 sm:py-3.5">
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-100">
                 <Play size={14} aria-hidden className="ml-0.5" />
               </span>
@@ -124,19 +120,20 @@ export function LandingHero() {
           </div>
         </div>
 
-        <div className="relative z-20 mt-2 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm sm:p-5 lg:mt-4">
-          <div className="flex flex-col gap-5 lg:flex-row lg:gap-0 lg:divide-x lg:divide-gray-100">
+        <div className="landing-fade-up landing-fade-up-delay-3 relative z-20 mt-2 rounded-xl border border-gray-100 bg-white/95 p-3 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:rounded-2xl sm:p-4 lg:mt-4 lg:p-5">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-gray-100">
             {heroFeatureCards.map(({ Icon, title, body }) => (
               <article
                 key={title}
-                className="flex min-w-0 flex-1 items-center gap-3 lg:px-4 lg:first:pl-0 lg:last:pr-0"
+                className="flex min-w-0 items-center gap-2.5 rounded-lg transition-colors duration-200 hover:bg-violet-50/60 sm:gap-3 sm:rounded-xl lg:px-4 lg:first:pl-0 lg:last:pr-0"
               >
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-violet-100 text-violet-700">
-                  <Icon size={18} strokeWidth={2} aria-hidden />
+                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-100 text-violet-700 sm:h-9 sm:w-9">
+                  <Icon size={16} strokeWidth={2} aria-hidden className="sm:hidden" />
+                  <Icon size={18} strokeWidth={2} aria-hidden className="hidden sm:block" />
                 </span>
                 <div className="min-w-0">
-                  <h2 className="text-xs font-bold leading-snug text-gray-900">{title}</h2>
-                  <p className="mt-0.5 text-xs leading-snug text-gray-500">{body}</p>
+                  <h2 className="text-[0.6875rem] font-bold leading-snug text-gray-900 sm:text-xs">{title}</h2>
+                  <p className="mt-0.5 text-[0.6875rem] leading-snug text-gray-500 sm:text-xs">{body}</p>
                 </div>
               </article>
             ))}
@@ -145,21 +142,22 @@ export function LandingHero() {
       </div>
 
       <div className="relative z-10 border-t border-gray-100 bg-gray-50/80">
-        <div className="site-container py-8 lg:py-10">
-          <p className="text-center text-sm font-semibold text-gray-800 sm:text-base">
-            Wally ya ayuda a miles de monotributistas a tener su negocio en orden
+        <div className="site-container py-6 sm:py-8 lg:py-10">
+          <p className="text-center text-xs font-semibold leading-snug text-gray-800 sm:text-sm lg:text-base">
+            Wally está diseñado para monotributistas que quieren facturar, cobrar y ordenar su negocio
           </p>
-          <ul className="mt-6 flex flex-wrap items-start justify-center gap-6 sm:gap-10 lg:gap-12">
+          <ul className="mt-4 flex flex-wrap items-start justify-center gap-4 sm:mt-6 sm:gap-6 lg:gap-12">
             {trustBarItems.map(({ Icon, title, subtitle, iconClass }) => (
-              <li key={title} className="flex items-start gap-3">
+              <li key={title} className="flex items-start gap-2.5 sm:gap-3">
                 <span
-                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${iconClass}`}
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10 ${iconClass}`}
                 >
-                  <Icon size={20} strokeWidth={2} aria-hidden />
+                  <Icon size={18} strokeWidth={2} aria-hidden className="sm:hidden" />
+                  <Icon size={20} strokeWidth={2} aria-hidden className="hidden sm:block" />
                 </span>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold leading-snug text-gray-900">{title}</p>
-                  <p className="mt-0.5 text-xs leading-snug text-gray-500">{subtitle}</p>
+                  <p className="text-xs font-semibold leading-snug text-gray-900 sm:text-sm">{title}</p>
+                  <p className="mt-0.5 text-[0.6875rem] leading-snug text-gray-500 sm:text-xs">{subtitle}</p>
                 </div>
               </li>
             ))}

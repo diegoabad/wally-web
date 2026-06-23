@@ -29,6 +29,10 @@
   --font-sans: var(--font-inter);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -57,6 +61,16 @@ body {
   }
 }
 
+@keyframes landing-shimmer {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
 .landing-fade-up {
   animation: landing-fade-up 0.7s ease both;
 }
@@ -77,11 +91,24 @@ body {
   animation: landing-float 5s ease-in-out infinite;
 }
 
+.landing-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+
+.landing-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .landing-hover-lift {
   transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .landing-hover-lift:hover {
@@ -89,15 +116,332 @@ body {
   box-shadow: 0 18px 40px rgb(104 41 248 / 0.12);
 }
 
+.landing-card {
+  border: 1px solid rgb(243 244 246);
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 2px 12px rgb(15 23 42 / 0.06);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.landing-card:hover {
+  transform: translateY(-3px);
+  border-color: rgb(221 214 254);
+  box-shadow: 0 16px 36px rgb(104 41 248 / 0.1);
+}
+
+.landing-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(221 214 254);
+  background: rgb(245 243 255);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(109 40 217);
+}
+
+.landing-section-badge--solid {
+  border-color: transparent;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 1px 2px rgb(104 41 248 / 0.2);
+}
+
+.landing-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: var(--primary);
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.05),
+    0 8px 24px rgb(104 41 248 / 0.18);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-btn-primary:hover {
+  transform: translateY(-1px);
+  background: var(--primary-hover);
+  box-shadow: 0 12px 28px rgb(104 41 248 / 0.22);
+}
+
+.landing-btn-primary:active {
+  transform: translateY(0);
+}
+
+.landing-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(221 214 254);
+  background: white;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(109 40 217);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.landing-btn-secondary:hover {
+  transform: translateY(-1px);
+  border-color: rgb(196 181 253);
+  background: rgb(245 243 255);
+}
+
+.landing-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: #25d366;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.landing-btn-whatsapp:hover {
+  transform: translateY(-1px);
+  background: #20bd5a;
+  box-shadow: 0 10px 24px rgb(37 211 102 / 0.25);
+}
+
+.landing-faq-item {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(229 231 235);
+  background: white;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.landing-faq-item--open {
+  border-color: rgb(221 214 254);
+  box-shadow: 0 8px 24px rgb(104 41 248 / 0.08);
+}
+
+.landing-faq-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(17 24 39);
+  transition: color 0.2s ease;
+}
+
+.landing-faq-trigger:hover {
+  color: rgb(109 40 217);
+}
+
+.landing-faq-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.landing-faq-item--open .landing-faq-icon {
+  transform: rotate(45deg);
+}
+
+.landing-faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.landing-faq-item--open .landing-faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.landing-faq-panel-inner {
+  overflow: hidden;
+}
+
+.landing-image-frame {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(229 231 235 / 0.9);
+  background: white;
+  box-shadow:
+    0 20px 50px rgb(104 41 248 / 0.14),
+    0 0 0 1px rgb(0 0 0 / 0.05);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.landing-image-frame:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 28px 60px rgb(104 41 248 / 0.18);
+}
+
+.landing-gradient-section {
+  background:
+    radial-gradient(circle at top right, rgb(237 233 254 / 0.55), transparent 42%),
+    radial-gradient(circle at bottom left, rgb(219 234 254 / 0.35), transparent 38%),
+    white;
+}
+
+.landing-section-title {
+  font-size: clamp(1.5rem, 1.35rem + 0.6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: rgb(17 24 39);
+}
+
+.landing-section-lead {
+  margin-top: 0.75rem;
+  font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1.125rem);
+  line-height: 1.6;
+  color: rgb(75 85 99);
+}
+
+.landing-section-block {
+  padding-block: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .landing-section-block {
+    padding-block: 5rem;
+  }
+
+  .landing-section-lead {
+    margin-top: 1rem;
+  }
+}
+
+.site-mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgb(15 23 42 / 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.site-mobile-drawer-backdrop--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.site-mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 70;
+  display: flex;
+  height: 100%;
+  height: 100dvh;
+  width: min(86vw, 19.5rem);
+  flex-direction: column;
+  border-left: 1px solid rgb(243 244 246);
+  background: white;
+  box-shadow: -12px 0 40px rgb(15 23 42 / 0.12);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-mobile-drawer--open {
+  transform: translateX(0);
+}
+
+@media (max-width: 899px) {
+  .site-container {
+    padding-inline: 0.875rem;
+  }
+
+  .landing-btn-primary,
+  .landing-btn-secondary,
+  .landing-btn-whatsapp {
+    padding: 0.6875rem 1.125rem;
+    font-size: 0.8125rem;
+  }
+
+  .landing-section-badge {
+    padding: 0.1875rem 0.625rem;
+    font-size: 0.6875rem;
+  }
+
+  .landing-card {
+    border-radius: 0.875rem;
+  }
+
+  .landing-faq-trigger {
+    padding: 0.875rem 1rem;
+    font-size: 0.8125rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .landing-fade-up,
   .landing-float {
     animation: none;
   }
 
   .landing-hover-lift,
-  .landing-hover-lift:hover {
+  .landing-hover-lift:hover,
+  .landing-card,
+  .landing-card:hover,
+  .landing-btn-primary,
+  .landing-btn-primary:hover,
+  .landing-btn-secondary,
+  .landing-btn-secondary:hover,
+  .landing-btn-whatsapp,
+  .landing-btn-whatsapp:hover,
+  .landing-image-frame,
+  .landing-image-frame:hover {
     transform: none;
+  }
+
+  .landing-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .landing-faq-panel {
+    transition: none;
+  }
+
+  .site-mobile-drawer,
+  .site-mobile-drawer-backdrop {
+    transition: none;
   }
 }
 

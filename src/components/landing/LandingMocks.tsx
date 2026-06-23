@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { LANDING_INICIO_DESKTOP_SRC, LANDING_INICIO_MOBILE_SRC } from "@/lib/brand";
+import { LANDING_INICIO_DESKTOP_SRC, LANDING_INICIO_MOBILE_SRC, LANDING_PROGRAMADAS_DESKTOP_SRC } from "@/lib/brand";
 
 type MockProps = {
   className?: string;
@@ -67,6 +67,22 @@ export function MobileDashboardMock({ className = "" }: MockProps) {
           decoding="async"
         />
       </div>
+    </div>
+  );
+}
+
+export function ProgramadasScreenshotMock({ className = "" }: MockProps) {
+  return (
+    <div className={`mx-auto w-full ${className}`}>
+      <BrowserMockFrame url="app.soywally.com.ar/facturas-programadas" className="w-full">
+        <img
+          src={LANDING_PROGRAMADAS_DESKTOP_SRC}
+          alt="Calendario de facturas programadas en Wally con emisiones automáticas y recordatorios"
+          className="block h-auto w-full"
+          draggable={false}
+          decoding="async"
+        />
+      </BrowserMockFrame>
     </div>
   );
 }

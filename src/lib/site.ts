@@ -8,13 +8,14 @@ export const site = {
   privacyEmail: "privacidad@soywally.com.ar",
   country: "Argentina",
   description:
-    "Wally ayuda a monotributistas a emitir Factura C, organizar clientes, programar facturas, cobrar con Mercado Pago y controlar su salud fiscal en un solo lugar.",
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5491112345678",
-  whatsappMessage: "Hola, quiero probar Wally para facturar como monotributista.",
+    "Wally es una plataforma online para monotributistas en Argentina: emití Factura C electrónica ante ARCA, cobrá con Mercado Pago, programá facturas recurrentes y controlá tu salud fiscal.",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "541141499723",
+  whatsappMessage: "Hola, me gustaría saber más sobre Wally.",
 } as const;
 
 export const navLinks = [
   { href: "/#beneficios", label: "Beneficios" },
+  { href: "/#factura", label: "Factura C" },
   { href: "/#producto", label: "Funciones" },
   { href: "/#precios", label: "Precios" },
   { href: "/#preguntas", label: "Preguntas frecuentes" },
