@@ -28,7 +28,7 @@ function PlanCard({
   return (
     <div className={`relative flex h-full flex-col ${featured ? "pt-3" : ""}`}>
       {featured ? (
-        <span className="absolute right-4 top-0 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase shadow-md shadow-violet-200">
+        <span className="absolute right-4 top-0 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase">
           <Star size={12} aria-hidden />
           Más elegido
         </span>
@@ -36,7 +36,7 @@ function PlanCard({
 
       <div
         className={`landing-card flex h-full flex-col p-6 sm:p-7 ${
-          featured ? "border-violet-300 shadow-[0_16px_40px_rgba(104,41,248,0.12)]" : ""
+          featured ? "border-violet-300" : ""
         }`}
       >
         <div>
@@ -86,7 +86,7 @@ export function LandingPricing() {
   return (
     <section id="precios" className="scroll-mt-24 bg-[#f4f5f7]">
       <div className="site-container landing-section-block">
-        <ScrollReveal className="mx-auto max-w-3xl text-center">
+        <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl text-center">
           <p className="landing-section-badge uppercase tracking-wide">
             Planes simples y transparentes
           </p>
@@ -125,13 +125,15 @@ export function LandingPricing() {
           <CtaLink href={site.appUrl} size="lg" block className="max-w-md">
             Empezar prueba gratis
           </CtaLink>
-          <p className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm text-gray-600 shadow-sm">
-            <Shield size={16} className="shrink-0 text-violet-600" aria-hidden />
-            Sin tarjeta de crédito
-            <span className="text-gray-300" aria-hidden>
+          <p className="landing-cta-trust">
+            <span className="landing-cta-trust__item">
+              <Shield size={16} aria-hidden />
+              Sin tarjeta de crédito
+            </span>
+            <span className="landing-cta-trust__sep" aria-hidden>
               ·
             </span>
-            {PRICING.trialDays} días de prueba incluidos
+            <span className="landing-cta-trust__item">{PRICING.trialDays} días de prueba incluidos</span>
           </p>
         </ScrollReveal>
       </div>

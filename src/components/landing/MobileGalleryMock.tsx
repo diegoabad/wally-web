@@ -37,7 +37,7 @@ export function MobileGalleryMock({ className = "" }: MobileGalleryMockProps) {
 
   return (
     <div className={`mx-auto w-full max-w-72 sm:max-w-80 lg:max-w-96 ${className}`}>
-      <div className="rounded-[2.5rem] border border-gray-200/80 bg-gray-950 p-2 shadow-2xl shadow-violet-200/60 ring-1 ring-black/10 lg:rounded-[2.75rem]">
+      <div className="rounded-[2.5rem] border border-zinc-600/35 bg-zinc-800 p-2 ring-1 ring-zinc-900/25 lg:rounded-[2.75rem]">
         <div className="overflow-hidden rounded-[2rem] bg-white lg:rounded-[2.25rem]">
           <div className="grid">
             {LANDING_MOBILE_GALLERY.map((item, itemIndex) => (

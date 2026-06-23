@@ -12,7 +12,7 @@ function BrowserMockFrame({
 }: MockProps & { url: string; children: ReactNode }) {
   return (
     <div
-      className={`overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-2xl shadow-violet-200/40 ring-1 ring-black/5 ${className}`}
+      className={`overflow-hidden rounded-2xl border border-gray-200/80 bg-white ring-1 ring-black/5 ${className}`}
     >
       <div className="border-b border-gray-200 bg-[#f3f4f6] px-3 py-1.5">
         <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ function BrowserMockFrame({
             <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
             <span className="h-2 w-2 rounded-full bg-[#28c840]" />
           </div>
-          <div className="flex min-w-0 flex-1 items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2 py-0.5 shadow-sm">
+          <div className="flex min-w-0 flex-1 items-center gap-1.5 rounded-md border border-gray-200 bg-white px-2 py-0.5">
             <svg viewBox="0 0 20 20" className="h-2.5 w-2.5 shrink-0 text-emerald-600" aria-hidden>
               <path
                 fill="currentColor"
@@ -56,7 +56,7 @@ export function DashboardHeroMock({ className = "" }: MockProps) {
 export function MobileDashboardMock({ className = "" }: MockProps) {
   return (
     <div
-      className={`w-full max-w-80 sm:max-w-88 lg:max-w-96 rounded-[2.5rem] border border-gray-200/80 bg-gray-950 p-2 shadow-2xl shadow-violet-200/60 ring-1 ring-black/10 lg:rounded-[2.75rem] ${className}`}
+      className={`w-full max-w-80 sm:max-w-88 lg:max-w-96 rounded-[2.5rem] border border-zinc-600/35 bg-zinc-800 p-2 ring-1 ring-zinc-900/25 lg:rounded-[2.75rem] ${className}`}
     >
       <div className="overflow-hidden rounded-[2rem] bg-white lg:rounded-[2.25rem]">
         <img

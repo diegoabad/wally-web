@@ -26,8 +26,8 @@ export function LandingProgramadasPromo() {
   return (
     <section className="site-container landing-section-block">
       <ScrollReveal>
-        <div className="overflow-hidden rounded-2xl border border-violet-100 bg-linear-to-br from-violet-50/90 via-white to-violet-50/50 px-5 py-8 shadow-[0_8px_40px_rgba(104,41,248,0.08)] sm:rounded-[1.75rem] sm:px-8 sm:py-10 lg:px-12 lg:py-14">
-          <div className="mx-auto max-w-3xl text-center">
+        <div className="overflow-hidden rounded-2xl border border-violet-100 bg-linear-to-br from-violet-50/90 via-white to-violet-50/50 px-5 py-8 sm:rounded-[1.75rem] sm:px-8 sm:py-10 lg:px-12 lg:py-14">
+          <div className="mx-auto max-w-3xl text-center landing-mobile-header">
             <h2 className="landing-section-title">
               Programá facturas recurrentes para tus{" "}
               <span className="text-violet-600">abonos mensuales</span>

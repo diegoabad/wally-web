@@ -80,6 +80,8 @@ export function SiteHeader() {
         </header>
       </div>
 
+      <div className="site-header-spacer min-[900px]:hidden" aria-hidden="true" />
+
       <div
         className={`site-mobile-drawer-backdrop min-[900px]:hidden ${menuOpen ? "site-mobile-drawer-backdrop--open" : ""}`}
         aria-hidden={!menuOpen}

@@ -7,7 +7,6 @@ import {
   Cloud,
   Clock,
   CreditCard,
-  Eye,
   FileText,
   Folder,
   Headphones,
@@ -20,6 +19,7 @@ import {
   Smartphone,
   User,
   Zap,
+  ArrowRight,
 } from "lucide-react";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaAnchor, CtaLink } from "@/components/CtaButton";
@@ -407,7 +407,7 @@ export default function HomePage() {
       {/* Value cards */}
       <section id="beneficios" className="scroll-mt-24 bg-[#f4f5f7]">
         <div className="site-container landing-section-block">
-          <ScrollReveal className="max-w-3xl">
+          <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl">
             <h2 className="landing-section-title">
               Software de facturación para monotributistas, simple y completo
             </h2>
@@ -443,7 +443,7 @@ export default function HomePage() {
             <ScrollReveal className="order-2 lg:order-1">
               <MobileGalleryMock className="landing-float" />
             </ScrollReveal>
-            <ScrollReveal className="order-1 lg:order-2" delay={80}>
+            <ScrollReveal className="landing-mobile-header order-1 lg:order-2" delay={80}>
               <p className="landing-section-badge">
                 <Smartphone size={14} aria-hidden />
                 También desde el celular
@@ -479,7 +479,7 @@ export default function HomePage() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal className="mt-10 grid gap-6 border-t border-gray-100 pt-8 sm:mt-14 sm:gap-8 sm:pt-10 sm:grid-cols-3" delay={120}>
+          <ScrollReveal className="landing-mobile-trust-list mt-10 grid gap-6 border-t border-gray-100 pt-8 sm:mt-14 sm:gap-8 sm:pt-10 sm:grid-cols-3" delay={120}>
             {mobileTrustItems.map(({ title, body, Icon }) => (
               <div key={title} className="flex items-start gap-3">
                 <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
@@ -500,7 +500,7 @@ export default function HomePage() {
       {/* Cómo funciona */}
       <section id="como-funciona" className="scroll-mt-24 bg-white">
         <div className="site-container landing-section-block">
-          <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl text-center">
             <p className="landing-section-badge uppercase tracking-wide">Empezar es muy fácil</p>
             <h2 className="landing-section-title mt-4 sm:mt-5">
               En 4 pasos estás listo para facturar
@@ -548,7 +548,7 @@ export default function HomePage() {
       {/* Producto */}
       <section id="producto" className="scroll-mt-24 bg-[#f4f5f7]">
         <div className="site-container landing-section-block">
-          <ScrollReveal className="mx-auto max-w-3xl text-center">
+          <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl text-center">
             <p className="landing-section-badge landing-section-badge--solid">
               Diseñado para monotributistas
             </p>
@@ -569,14 +569,21 @@ export default function HomePage() {
             ))}
           </div>
 
-          <ScrollReveal className="mx-auto mt-12 flex max-w-xl flex-col items-center text-center" delay={120}>
-            <CtaLink href={site.appUrl} variant="secondary" pill block className="max-w-xl">
-              <Eye size={18} aria-hidden />
-              Probá todas las funciones gratis por 30 días
+          <ScrollReveal className="mx-auto mt-12 flex max-w-xl flex-col items-center text-center sm:mt-14" delay={120}>
+            <CtaLink href={site.appUrl} size="lg" block className="sm:min-w-[17.5rem]">
+              <span className="sm:hidden">Probar gratis 30 días</span>
+              <span className="hidden sm:inline">Probá todas las funciones gratis por 30 días</span>
+              <ArrowRight size={18} aria-hidden className="shrink-0" />
             </CtaLink>
-            <p className="mt-4 inline-flex items-center gap-2 text-sm text-gray-500">
-              <Lock size={14} aria-hidden className="shrink-0" />
-              Sin tarjeta de crédito • Podés cancelar cuando quieras
+            <p className="landing-cta-trust mt-4">
+              <span className="landing-cta-trust__item">
+                <Lock size={14} aria-hidden />
+                Sin tarjeta de crédito
+              </span>
+              <span className="landing-cta-trust__sep" aria-hidden>
+                ·
+              </span>
+              <span className="landing-cta-trust__item">Cancelás cuando quieras</span>
             </p>
           </ScrollReveal>
         </div>
@@ -589,7 +596,7 @@ export default function HomePage() {
       {/* FAQ + Contacto */}
       <section id="preguntas" className="scroll-mt-24 bg-[#f4f5f7]">
         <div className="site-container grid gap-8 landing-section-block lg:grid-cols-2 lg:gap-12">
-          <ScrollReveal>
+          <ScrollReveal className="landing-mobile-header">
             <h2 className="landing-section-title">Preguntas frecuentes</h2>
             <p className="landing-section-lead mt-2">
               Respondemos las dudas más comunes de monotributistas.
@@ -604,7 +611,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <div className="landing-card h-full border-violet-100 bg-linear-to-br from-violet-50/90 via-white to-violet-50/40 p-5 sm:p-8">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 text-white shadow-md shadow-violet-200 sm:h-11 sm:w-11">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 text-white sm:h-11 sm:w-11">
                 <WhatsAppIcon className="h-5 w-5 sm:h-6 sm:w-6" />
               </span>
               <h2 className="mt-4 text-xl font-bold text-gray-900 sm:mt-5 sm:text-2xl">Hablá con nosotros</h2>
@@ -616,7 +623,7 @@ export default function HomePage() {
               <ul className="mt-6 space-y-4">
                 {faqContactItems.map(({ Icon, title, body }) => (
                   <li key={title} className="flex items-start gap-3">
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-violet-600 shadow-sm">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-violet-600 ring-1 ring-gray-100">
                       <Icon size={18} aria-hidden />
                     </span>
                     <div>

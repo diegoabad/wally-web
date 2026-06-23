@@ -16,7 +16,7 @@ export function LandingFacturaPreview() {
     <section id="factura" className="scroll-mt-24 bg-white">
       <div className="site-container landing-section-block">
         <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
-          <ScrollReveal className="max-w-xl lg:max-w-none">
+          <ScrollReveal className="max-w-xl lg:max-w-none landing-mobile-header">
             <p className="landing-section-badge">
               <FileText size={14} aria-hidden />
               Factura C en segundos
@@ -29,7 +29,7 @@ export function LandingFacturaPreview() {
               Elegís cliente y monto, revisás la vista previa y en pocos clics tenés tu Factura C
               para monotributo con CAE autorizado por ARCA, lista para descargar o compartir.
             </p>
-            <ul className="mt-7 space-y-3">
+            <ul className="landing-mobile-icon-list mt-7 space-y-3">
               {highlights.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-gray-700 sm:text-[0.9375rem]">
                   <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-100 text-violet-600">
@@ -39,7 +39,7 @@ export function LandingFacturaPreview() {
                 </li>
               ))}
             </ul>
-            <CtaLink href={site.appUrl} size="lg" className="mt-8">
+            <CtaLink href={site.appUrl} size="lg" block className="mx-auto mt-8 max-w-sm min-[900px]:mx-0 min-[900px]:max-w-none">
               Emitir mi primera factura
               <ArrowRight size={18} aria-hidden />
             </CtaLink>
@@ -47,11 +47,11 @@ export function LandingFacturaPreview() {
 
           <ScrollReveal className="relative mx-auto w-full max-w-md lg:max-w-lg xl:max-w-xl" delay={100}>
             <div
-              className="pointer-events-none absolute -right-6 -top-6 h-40 w-40 rounded-full bg-violet-100/70 blur-3xl"
+              className="pointer-events-none absolute -right-6 -top-6 hidden h-40 w-40 rounded-full bg-violet-100/70 blur-3xl min-[900px]:block"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute -bottom-8 -left-6 h-44 w-44 rounded-full bg-violet-200/40 blur-3xl"
+              className="pointer-events-none absolute -bottom-8 -left-6 hidden h-44 w-44 rounded-full bg-violet-200/40 blur-3xl min-[900px]:block"
               aria-hidden
             />
             <figure className="landing-image-frame relative z-10">

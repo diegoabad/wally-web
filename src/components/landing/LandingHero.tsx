@@ -77,8 +77,8 @@ export function LandingHero() {
         />
 
         <div className="relative grid items-start gap-7 pb-4 sm:gap-10 sm:pb-5 lg:grid-cols-[minmax(0,46%)_minmax(0,54%)] lg:gap-14 lg:pb-7">
-          <div className="landing-fade-up">
-          <p className="mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-violet-600 px-3 py-1 text-[0.6875rem] font-semibold leading-snug text-white shadow-sm shadow-violet-200 sm:mb-5 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs">
+          <div className="landing-fade-up landing-mobile-header">
+          <p className="mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-violet-600 px-3 py-1 text-[0.6875rem] font-semibold leading-snug text-white sm:mb-5 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs">
             <Zap size={12} aria-hidden className="shrink-0 sm:hidden" />
             <Zap size={14} aria-hidden className="hidden shrink-0 sm:block" />
             <span className="sm:hidden">Factura C para monotributo</span>
@@ -113,7 +113,7 @@ export function LandingHero() {
           </div>
         </div>
 
-        <div className="landing-fade-up landing-fade-up-delay-3 relative z-20 mt-2 rounded-xl border border-gray-100 bg-white/95 p-3 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:rounded-2xl sm:p-4 lg:mt-4 lg:p-5">
+        <div className="landing-fade-up landing-fade-up-delay-3 relative z-20 mt-2 rounded-xl border border-gray-100 bg-white/95 p-3 backdrop-blur-sm sm:rounded-2xl sm:p-4 lg:mt-4 lg:p-5">
           <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-gray-100">
             {heroFeatureCards.map(({ Icon, title, body }) => (
               <article
@@ -139,7 +139,7 @@ export function LandingHero() {
           <p className="text-center text-xs font-semibold leading-snug text-gray-800 sm:text-sm lg:text-base">
             Wally está diseñado para monotributistas que quieren facturar, cobrar y ordenar su negocio
           </p>
-          <ul className="mt-4 flex flex-col items-start gap-5 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-8 sm:gap-y-4 lg:gap-x-12">
+          <ul className="landing-mobile-trust-list mt-4 flex flex-col items-start gap-5 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-8 sm:gap-y-4 lg:gap-x-12">
             {trustBarItems.map(({ Icon, title, subtitle, iconClass }) => (
               <li key={title} className="flex items-start gap-2.5 sm:gap-3">
                 <span
