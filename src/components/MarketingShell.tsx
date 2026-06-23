@@ -1,6 +1,5 @@
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
-import { WhatsAppFloat } from "./WhatsAppFloat";
 
 export function MarketingShell({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +7,6 @@ export function MarketingShell({ children }: { children: React.ReactNode }) {
       <SiteHeader />
       {children}
       <SiteFooter />
-      <WhatsAppFloat />
     </>
   );
 }

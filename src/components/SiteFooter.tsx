@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { WALLY_LOGO_WHITE_SRC } from "@/lib/brand";
+import { WALLY_LOGO_SRC } from "@/lib/brand";
 import { site } from "@/lib/site";
 
 const productLinks = [
@@ -27,28 +27,29 @@ const socialLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto bg-[#0f172a] text-gray-300">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <footer className="mt-auto border-t border-gray-100 bg-white text-gray-600">
+      <div className="site-container py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="sm:col-span-2 lg:col-span-2">
             <Link href="/" className="inline-flex items-center">
               <img
-                src={WALLY_LOGO_WHITE_SRC}
+                src={WALLY_LOGO_SRC}
                 alt={site.name}
                 className="h-auto max-h-12 w-auto max-w-38 object-contain"
                 draggable={false}
+                decoding="async"
               />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-500">
               Facturación electrónica, cobros y salud fiscal para monotributistas en Argentina.
             </p>
           </div>
           <div>
-            <p className="text-sm font-semibold text-white">Producto</p>
+            <p className="text-sm font-semibold text-gray-900">Producto</p>
             <ul className="mt-4 space-y-2.5">
               {productLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-gray-400 transition hover:text-white">
+                  <Link href={link.href} className="text-sm text-gray-600 transition hover:text-violet-700">
                     {link.label}
                   </Link>
                 </li>
@@ -56,11 +57,11 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-white">Empresa</p>
+            <p className="text-sm font-semibold text-gray-900">Empresa</p>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-gray-400 transition hover:text-white">
+                  <Link href={link.href} className="text-sm text-gray-600 transition hover:text-violet-700">
                     {link.label}
                   </Link>
                 </li>
@@ -68,11 +69,11 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-white">Legal</p>
+            <p className="text-sm font-semibold text-gray-900">Legal</p>
             <ul className="mt-4 space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-gray-400 transition hover:text-white">
+                  <Link href={link.href} className="text-sm text-gray-600 transition hover:text-violet-700">
                     {link.label}
                   </Link>
                 </li>
@@ -80,7 +81,7 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-8 sm:flex-row">
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
           </p>
@@ -91,7 +92,7 @@ export function SiteFooter() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-xs font-semibold text-gray-400 transition hover:border-white/25 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-xs font-semibold text-gray-500 transition hover:border-violet-300 hover:text-violet-700"
                 aria-label={link.label}
               >
                 {link.label[0]}
