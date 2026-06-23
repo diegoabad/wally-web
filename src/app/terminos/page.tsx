@@ -4,9 +4,13 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Términos y condiciones",
-  description: `Términos y condiciones de uso de ${site.name}.`,
+  description: `Términos y condiciones de uso de ${site.name}, plataforma de Factura C electrónica y gestión fiscal para monotributistas en Argentina.`,
   alternates: {
     canonical: `${site.url}/terminos`,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -106,6 +110,12 @@ export default function TerminosPage() {
       <p>
         Consultas sobre estos términos:{" "}
         <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.
+      </p>
+
+      <h2>13. Política de privacidad</h2>
+      <p>
+        El tratamiento de datos personales se describe en nuestra{" "}
+        <a href="/privacidad">Política de privacidad</a>.
       </p>
     </LegalPageLayout>
   );

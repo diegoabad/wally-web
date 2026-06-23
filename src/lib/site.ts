@@ -19,7 +19,11 @@ export const navLinks = [
   { href: "/#producto", label: "Funciones" },
   { href: "/#precios", label: "Precios" },
   { href: "/#preguntas", label: "Preguntas frecuentes" },
-  { href: "/contacto", label: "Ayuda" },
+] as const;
+
+export const legalLinks = [
+  { href: "/terminos", label: "Términos y condiciones" },
+  { href: "/privacidad", label: "Política de privacidad" },
 ] as const;
 
 export function whatsappUrl(message = site.whatsappMessage): string {

@@ -4,9 +4,13 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
-  description: `Política de privacidad de ${site.name}. Información sobre datos personales, Google OAuth, Drive y Calendar.`,
+  description: `Política de privacidad de ${site.name}. Cómo tratamos tus datos personales, integraciones con Google OAuth, Drive, Calendar y contacto.`,
   alternates: {
     canonical: `${site.url}/privacidad`,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -147,6 +151,12 @@ export default function PrivacidadPage() {
       <p>
         Podemos actualizar esta política. Publicaremos la versión vigente en {site.url}/privacidad
         con la fecha de última modificación.
+      </p>
+
+      <h2>11. Términos de uso</h2>
+      <p>
+        El uso de {site.name} también se rige por nuestros{" "}
+        <a href="/terminos">Términos y condiciones</a>.
       </p>
     </LegalPageLayout>
   );

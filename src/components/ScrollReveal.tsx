@@ -31,9 +31,8 @@ export function ScrollReveal({
     const element = ref.current;
     if (!element) return;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduceMotion.matches) {
-      setVisible(true);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      element.classList.add("landing-reveal--visible");
       return;
     }
 

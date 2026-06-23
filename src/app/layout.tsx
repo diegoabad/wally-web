@@ -11,8 +11,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Factura C electrónica para monotributistas`,
-    template: `%s | ${site.name}`,
+    default: "Wally | Facturador online para monotributo",
+    template: "%s | Wally",
   },
   description: site.description,
   keywords: [
@@ -45,16 +45,19 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=6", sizes: "any" },
+      { url: "/favicon-16.png?v=6", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32.png?v=6", sizes: "32x32", type: "image/png" },
     ],
+    shortcut: ["/favicon.ico?v=6"],
+    apple: [{ url: "/apple-touch-icon.png?v=6", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     type: "website",
     locale: "es_AR",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} | Factura C electrónica para monotributistas`,
+    title: "Wally | Facturador online para monotributo",
     description: site.description,
     images: [
       {
@@ -67,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | Factura C electrónica para monotributistas`,
+    title: "Wally | Facturador online para monotributo",
     description: site.description,
     images: ["/landing/inicio-dashboard-desktop.png"],
   },
@@ -79,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-AR" className={`${inter.variable} h-full antialiased`}>
+    <html lang="es-AR" className={`${inter.variable} h-full antialiased`} data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );

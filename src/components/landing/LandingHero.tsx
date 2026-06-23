@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   ArrowRight,
   Bell,
@@ -8,11 +7,11 @@ import {
   Heart,
   HeartPulse,
   Lock,
-  Play,
   Shield,
   Zap,
 } from "lucide-react";
 import { DashboardHeroMock } from "./LandingMocks";
+import { CtaLink } from "@/components/CtaButton";
 import { site } from "@/lib/site";
 
 const heroFeatureCards = [
@@ -97,17 +96,11 @@ export function LandingHero() {
             <strong className="font-semibold text-violet-700">trabajar más simple</strong>.
           </p>
 
-          <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-3">
-            <Link href={site.appUrl} className="landing-btn-primary w-full justify-center px-5 py-3 text-sm sm:w-auto sm:px-6 sm:py-3.5">
+          <div className="mt-6 sm:mt-8">
+            <CtaLink href={site.appUrl} size="lg" block>
               Probar Wally gratis 30 días
-              <ArrowRight size={16} aria-hidden />
-            </Link>
-            <Link href="#como-funciona" className="landing-btn-secondary w-full justify-center px-5 py-3 text-sm sm:w-auto sm:px-6 sm:py-3.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-violet-100">
-                <Play size={14} aria-hidden className="ml-0.5" />
-              </span>
-              Ver cómo funciona
-            </Link>
+              <ArrowRight size={18} aria-hidden />
+            </CtaLink>
           </div>
         </div>
 
@@ -146,7 +139,7 @@ export function LandingHero() {
           <p className="text-center text-xs font-semibold leading-snug text-gray-800 sm:text-sm lg:text-base">
             Wally está diseñado para monotributistas que quieren facturar, cobrar y ordenar su negocio
           </p>
-          <ul className="mt-4 flex flex-wrap items-start justify-center gap-4 sm:mt-6 sm:gap-6 lg:gap-12">
+          <ul className="mt-4 flex flex-col items-start gap-5 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-8 sm:gap-y-4 lg:gap-x-12">
             {trustBarItems.map(({ Icon, title, subtitle, iconClass }) => (
               <li key={title} className="flex items-start gap-2.5 sm:gap-3">
                 <span

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   BarChart3,
   CalendarClock,
@@ -23,6 +22,7 @@ import {
   Zap,
 } from "lucide-react";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { CtaAnchor, CtaLink } from "@/components/CtaButton";
 import { MobileGalleryMock } from "@/components/landing/MobileGalleryMock";
 import { LandingFacturaPreview } from "@/components/landing/LandingFacturaPreview";
 import { LandingHero } from "@/components/landing/LandingHero";
@@ -33,7 +33,9 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { site, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Factura C electrónica para monotributistas",
+  title: {
+    absolute: "Wally | Facturador online para monotributo",
+  },
   description: site.description,
   alternates: {
     canonical: site.url,
@@ -299,6 +301,8 @@ const structuredData = [
     url: site.url,
     email: site.supportEmail,
     logo: `${site.url}/wally-logo.png`,
+    termsOfService: `${site.url}/terminos`,
+    privacyPolicy: `${site.url}/privacidad`,
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -331,6 +335,8 @@ const structuredData = [
     url: site.url,
     description: site.description,
     softwareHelp: `${site.url}/#preguntas`,
+    termsOfService: `${site.url}/terminos`,
+    privacyPolicy: `${site.url}/privacidad`,
     offers: {
       "@type": "Offer",
       priceCurrency: "ARS",
@@ -462,10 +468,10 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link href={site.appUrl} className="landing-btn-primary min-h-12 px-6 py-3 text-sm sm:px-8">
+                <CtaLink href={site.appUrl} block>
                   <Smartphone size={18} aria-hidden />
                   Probar desde mi celular
-                </Link>
+                </CtaLink>
                 <p className="font-['Segoe_Script','Bradley_Hand',cursive] text-lg text-violet-600 sm:text-2xl">
                   Sin instalar nada →
                 </p>
@@ -564,13 +570,10 @@ export default function HomePage() {
           </div>
 
           <ScrollReveal className="mx-auto mt-12 flex max-w-xl flex-col items-center text-center" delay={120}>
-            <Link
-              href={site.appUrl}
-              className="landing-btn-secondary min-h-12 w-full rounded-full border-2 border-violet-600 px-6 py-3 text-sm sm:w-auto sm:px-8"
-            >
+            <CtaLink href={site.appUrl} variant="secondary" pill block className="max-w-xl">
               <Eye size={18} aria-hidden />
               Probá todas las funciones gratis por 30 días
-            </Link>
+            </CtaLink>
             <p className="mt-4 inline-flex items-center gap-2 text-sm text-gray-500">
               <Lock size={14} aria-hidden className="shrink-0" />
               Sin tarjeta de crédito • Podés cancelar cuando quieras
@@ -623,15 +626,16 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <a
+              <CtaAnchor
                 href={whatsappUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="landing-btn-whatsapp mt-8 w-full"
+                block
+                className="mt-8"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 Escribinos por WhatsApp
-              </a>
+              </CtaAnchor>
             </div>
           </ScrollReveal>
         </div>

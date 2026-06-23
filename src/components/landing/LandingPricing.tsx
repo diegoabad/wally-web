@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Check, Shield, Star } from "lucide-react";
+import { CtaLink } from "@/components/CtaButton";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import {
   PRICING,
@@ -122,9 +122,9 @@ export function LandingPricing() {
         </div>
 
         <ScrollReveal className="mt-10 flex flex-col items-center gap-4" delay={160}>
-          <Link href={site.appUrl} className="landing-btn-primary min-h-12 w-full max-w-md px-8 py-3.5 text-base sm:w-auto">
+          <CtaLink href={site.appUrl} size="lg" block className="max-w-md">
             Empezar prueba gratis
-          </Link>
+          </CtaLink>
           <p className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-white px-4 py-2 text-sm text-gray-600 shadow-sm">
             <Shield size={16} className="shrink-0 text-violet-600" aria-hidden />
             Sin tarjeta de crédito

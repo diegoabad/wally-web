@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight, Check, FileText } from "lucide-react";
+import { CtaLink } from "@/components/CtaButton";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { LANDING_FACTURA_PREVIEW_SRC } from "@/lib/brand";
 import { site } from "@/lib/site";
@@ -39,10 +39,10 @@ export function LandingFacturaPreview() {
                 </li>
               ))}
             </ul>
-            <Link href={site.appUrl} className="landing-btn-primary mt-8 min-h-12 px-7 py-3.5 text-sm">
+            <CtaLink href={site.appUrl} size="lg" className="mt-8">
               Emitir mi primera factura
               <ArrowRight size={18} aria-hidden />
-            </Link>
+            </CtaLink>
           </ScrollReveal>
 
           <ScrollReveal className="relative mx-auto w-full max-w-md lg:max-w-lg xl:max-w-xl" delay={100}>

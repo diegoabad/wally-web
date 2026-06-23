@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight, Bell, Clock, ShieldCheck } from "lucide-react";
+import { CtaLink } from "@/components/CtaButton";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ProgramadasScreenshotMock } from "./LandingMocks";
 import { site } from "@/lib/site";
@@ -49,10 +49,10 @@ export function LandingProgramadasPromo() {
           </div>
 
           <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center text-center lg:mt-12">
-            <Link href={site.appUrl} className="landing-btn-primary min-h-12 px-7 py-3.5 text-sm">
+            <CtaLink href={site.appUrl} size="lg">
               Probar Wally gratis
               <ArrowRight size={18} aria-hidden />
-            </Link>
+            </CtaLink>
 
             <div className="mt-10 grid w-full gap-8 sm:grid-cols-3 sm:gap-6 sm:text-left">
               {benefits.map(({ Icon, title, body }) => (
