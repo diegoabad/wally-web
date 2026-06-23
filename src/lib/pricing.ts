@@ -10,6 +10,7 @@ export const PRICING = {
     "Clientes y servicios ilimitados",
     "Cobros online con link de pago",
     "Integraciones (Mercado Pago, Google Drive, Google Calendar)",
+    "Colaboradores con permisos limitados por módulo",
     "Soporte prioritario",
   ],
 } as const;

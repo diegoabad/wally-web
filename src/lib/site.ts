@@ -8,7 +8,7 @@ export const site = {
   privacyEmail: "privacidad@soywally.com.ar",
   country: "Argentina",
   description:
-    "Wally es una plataforma online para monotributistas en Argentina: emití Factura C electrónica ante ARCA, cobrá con Mercado Pago, programá facturas recurrentes y controlá tu salud fiscal.",
+    "Wally es una plataforma online para monotributistas en Argentina: emití Factura C electrónica ante ARCA, cobrá con Mercado Pago, programá facturas recurrentes, invitá colaboradores con permisos limitados y controlá tu salud fiscal.",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "541141499723",
   whatsappMessage: "Hola, me gustaría saber más sobre Wally.",
 } as const;

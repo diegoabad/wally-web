@@ -92,7 +92,8 @@ export function LandingHero() {
 
           <p className="mt-4 max-w-lg text-[0.9375rem] leading-relaxed text-gray-600 sm:mt-5 sm:text-lg">
             La plataforma online para monotributistas que reúne facturación electrónica ante ARCA,
-            links de cobro con Mercado Pago, facturas programadas y salud fiscal para{" "}
+            links de cobro con Mercado Pago, facturas programadas, colaboradores con permisos
+            limitados y salud fiscal para{" "}
             <strong className="font-semibold text-violet-700">trabajar más simple</strong>.
           </p>
 

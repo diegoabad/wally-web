@@ -75,7 +75,7 @@ const resultCards = [
   },
   {
     title: "Conectá tus herramientas",
-    body: "Trabajá con integraciones como Google Drive, Google Calendar y Mercado Pago desde una misma plataforma.",
+    body: "Integrá Google Drive, Calendar y Mercado Pago. Invitá colaboradores con permisos limitados para que te ayuden a facturar, cargar clientes o revisar cobros.",
     Icon: ShieldCheck,
     color: "bg-blue-100 text-blue-700",
   },
@@ -221,7 +221,7 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
 const faqs = [
   {
     q: "¿Qué es Wally?",
-    a: "Wally es una plataforma online para monotributistas en Argentina que reúne Factura C electrónica, clientes, cobros con Mercado Pago, facturas programadas y seguimiento fiscal en un solo lugar.",
+    a: "Wally es una plataforma online para monotributistas en Argentina que reúne Factura C electrónica, clientes, cobros con Mercado Pago, facturas programadas, colaboradores con permisos limitados y seguimiento fiscal en un solo lugar.",
   },
   {
     q: "¿Puedo emitir facturas electrónicas ante ARCA?",
@@ -238,6 +238,10 @@ const faqs = [
   {
     q: "¿Puedo programar facturas mensuales?",
     a: "Sí. Configurás facturas recurrentes mensuales con emisión automática o con confirmación manual, ideal para abonos, honorarios y servicios.",
+  },
+  {
+    q: "¿Puedo invitar a alguien para que me ayude con la cuenta?",
+    a: "Sí. Podés sumar colaboradores e invitarlos por email para que operen tu cuenta con permisos limitados — por ejemplo solo facturas, clientes o cobros — sin compartir tu clave fiscal ni darles acceso total.",
   },
   {
     q: "¿Wally sirve para responsables inscriptos?",
@@ -353,6 +357,7 @@ const structuredData = [
       "Clientes y catálogo de productos o servicios",
       "Facturas programadas y recurrentes",
       "Cobros con links de Mercado Pago",
+      "Colaboradores con permisos limitados por módulo",
       "Seguimiento de salud fiscal y monotributo",
       "Integraciones con Google Drive, Google Calendar y Mercado Pago",
     ],
@@ -412,8 +417,8 @@ export default function HomePage() {
               Software de facturación para monotributistas, simple y completo
             </h2>
             <p className="landing-section-lead">
-              Emití Factura C, cobrá con Mercado Pago, ordená clientes y controlá tu monotributo
-              desde una plataforma clara.
+              Emití Factura C, cobrá con Mercado Pago, ordená clientes, sumá colaboradores a tu
+              cuenta y controlá tu monotributo desde una plataforma clara.
             </p>
           </ScrollReveal>
           <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 lg:grid-cols-3 lg:gap-8">

@@ -26,8 +26,8 @@ export function SiteFooter() {
               />
             </Link>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-500">
-              Factura C electrónica, cobros con Mercado Pago, facturas programadas y salud fiscal
-              para monotributistas en Argentina.
+              Factura C electrónica, cobros con Mercado Pago, facturas programadas, colaboradores
+              con permisos limitados y salud fiscal para monotributistas en Argentina.
             </p>
             <p className="mt-3 text-sm text-gray-500">
               Contacto:{" "}
