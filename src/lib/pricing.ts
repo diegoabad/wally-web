@@ -1,8 +1,8 @@
 /** Valores alineados con `api/src/constants/subscription.ts` y planes activos. */
 export const PRICING = {
   trialDays: 30,
-  monthlyPriceArs: 25_000,
-  yearlyPriceArs: 250_000,
+  monthlyPriceArs: 15_000,
+  yearlyPriceArs: 150_000,
   features: [
     "Emisión ilimitada de facturas",
     "Facturas programadas",
