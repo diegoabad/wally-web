@@ -3,13 +3,15 @@ import {
   BarChart3,
   CalendarClock,
   Check,
+  CircleCheck,
   Cloud,
   Clock,
   CreditCard,
+  Eye,
   FileText,
   Folder,
   HeartPulse,
-  Image as ImageIcon,
+  Lock,
   Shield,
   ShieldCheck,
   Smartphone,
@@ -137,24 +139,40 @@ const mobileTrustItems = [
   },
 ] as const;
 
-const captures = [
+const productInsideCards = [
   {
     title: "Emití facturas electrónicas en ARCA",
-    body: "Espacio reservado para una captura real del flujo de nueva factura.",
+    body: "Tu Factura C en pocos clics: elegís cliente, cargás el monto y emitís al toque, con CAE y PDF listos.",
+    badge: "Rápido, simple y 100% oficial",
+    Icon: FileText,
+    iconClass: "bg-violet-100 text-violet-600",
+    badgeClass: "bg-violet-50 text-violet-700",
   },
   {
-    title: "Gestioná clientes sin perder datos",
-    body: "Espacio reservado para una captura real del listado o detalle de clientes.",
+    title: "Cobrá con Mercado Pago desde Wally",
+    body: "Creá links de cobro, seguí los pagos recibidos y facturá en segundos cuando el cobro entra.",
+    badge: "Links de cobro y facturación conectados",
+    Icon: CreditCard,
+    iconClass: "bg-sky-100 text-sky-600",
+    badgeClass: "bg-sky-50 text-sky-700",
   },
   {
     title: "Programá facturas recurrentes",
-    body: "Espacio reservado para una captura real del calendario o pantalla de programadas.",
+    body: "Automatizá tus facturas periódicas y olvidate de hacerlo manualmente.",
+    badge: "Ahorrá tiempo y evitá olvidos",
+    Icon: CalendarClock,
+    iconClass: "bg-emerald-100 text-emerald-600",
+    badgeClass: "bg-emerald-50 text-emerald-700",
   },
   {
     title: "Revisá tu salud fiscal y categoría",
-    body: "Espacio reservado para una captura real del panel de salud fiscal.",
+    body: "Visualizá tu facturación, controlá tu categoría y recibí alertas para estar siempre al día.",
+    badge: "Alertas y recomendaciones personalizadas",
+    Icon: BarChart3,
+    iconClass: "bg-orange-100 text-orange-600",
+    badgeClass: "bg-orange-50 text-orange-700",
   },
-];
+] as const;
 
 const faqs = [
   {
@@ -202,15 +220,32 @@ function StepCard({ step }: { step: (typeof steps)[number] }) {
   );
 }
 
-function CapturePlaceholder({ title, body }: { title: string; body: string }) {
+function ProductInsideCard({ card }: { card: (typeof productInsideCards)[number] }) {
   return (
-    <div className="flex min-h-72 flex-col items-center justify-center rounded-2xl border border-dashed border-violet-200 bg-violet-50/40 p-8 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-violet-600 shadow-sm">
-        <ImageIcon size={28} aria-hidden />
+    <article className="flex h-full min-w-0 flex-col rounded-2xl bg-white p-6 shadow-[0_2px_12px_rgba(15,23,42,0.06)] sm:p-7">
+      <span
+        className={`relative inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${card.iconClass}`}
+      >
+        <card.Icon size={28} strokeWidth={1.75} aria-hidden />
+        {card.Icon === FileText ? (
+          <CircleCheck
+            size={18}
+            className="absolute -bottom-1 -right-1 rounded-full bg-white text-emerald-500"
+            aria-hidden
+          />
+        ) : null}
       </span>
-      <p className="mt-5 text-sm font-semibold text-gray-900">{title}</p>
-      <p className="mt-2 max-w-sm text-sm leading-relaxed text-gray-600">{body}</p>
-    </div>
+      <h3 className="mt-5 text-lg font-bold leading-snug text-gray-900 sm:text-xl">{card.title}</h3>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600 sm:text-[0.9375rem]">
+        {card.body}
+      </p>
+      <span
+        className={`mt-6 inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${card.badgeClass}`}
+      >
+        <Check size={14} strokeWidth={2.5} aria-hidden />
+        {card.badge}
+      </span>
+    </article>
   );
 }
 
@@ -430,20 +465,39 @@ export default function HomePage() {
       </section>
 
       {/* Producto */}
-      <section id="producto" className="site-container scroll-mt-24 py-16 lg:py-20">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Conocé Wally por dentro</h2>
-          <p className="mt-3 text-gray-600">
-            Pantallas limpias, acciones visibles y funciones pensadas para monotributistas.
-          </p>
-        </div>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {captures.map(({ title, body }) => (
-            <div key={title}>
-              <h3 className="mb-4 text-lg font-semibold text-gray-900">{title}</h3>
-              <CapturePlaceholder title={title} body={body} />
-            </div>
-          ))}
+      <section id="producto" className="scroll-mt-24 bg-[#f4f5f7]">
+        <div className="site-container py-16 lg:py-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="inline-flex items-center rounded-full bg-violet-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm shadow-violet-200">
+              Diseñado para monotributistas
+            </p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Conocé <span className="text-violet-600">Wally</span> por dentro
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">
+              Pantallas limpias, acciones visibles y funciones pensadas para monotributistas.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:gap-8">
+            {productInsideCards.map((card) => (
+              <ProductInsideCard key={card.title} card={card} />
+            ))}
+          </div>
+
+          <div className="mx-auto mt-12 flex max-w-xl flex-col items-center text-center">
+            <Link
+              href={site.appUrl}
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-violet-600 bg-white px-6 py-3 text-sm font-semibold text-violet-700 transition hover:bg-violet-50 sm:w-auto sm:px-8"
+            >
+              <Eye size={18} aria-hidden />
+              Probá todas las funciones gratis por 30 días
+            </Link>
+            <p className="mt-4 inline-flex items-center gap-2 text-sm text-gray-500">
+              <Lock size={14} aria-hidden className="shrink-0" />
+              Sin tarjeta de crédito • Podés cancelar cuando quieras
+            </p>
+          </div>
         </div>
       </section>
 

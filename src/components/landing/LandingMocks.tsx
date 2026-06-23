@@ -56,13 +56,9 @@ export function DashboardHeroMock({ className = "" }: MockProps) {
 export function MobileDashboardMock({ className = "" }: MockProps) {
   return (
     <div
-      className={`w-full max-w-80 sm:max-w-88 lg:max-w-96 rounded-[2.75rem] border border-gray-200/80 bg-gray-950 p-2.5 shadow-2xl shadow-violet-200/60 ring-1 ring-black/10 lg:rounded-[3rem] lg:p-3 ${className}`}
+      className={`w-full max-w-80 sm:max-w-88 lg:max-w-96 rounded-[2.5rem] border border-gray-200/80 bg-gray-950 p-2 shadow-2xl shadow-violet-200/60 ring-1 ring-black/10 lg:rounded-[2.75rem] ${className}`}
     >
-      <div className="relative overflow-hidden rounded-[2.125rem] bg-white lg:rounded-[2.5rem]">
-        <div
-          className="pointer-events-none absolute left-1/2 top-3 z-10 h-5 w-28 -translate-x-1/2 rounded-full bg-gray-950 lg:top-3.5 lg:h-6 lg:w-32"
-          aria-hidden
-        />
+      <div className="overflow-hidden rounded-[2rem] bg-white lg:rounded-[2.25rem]">
         <img
           src={LANDING_INICIO_MOBILE_SRC}
           alt="Inicio de Wally en celular con acceso para emitir factura"
