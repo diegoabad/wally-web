@@ -26,29 +26,25 @@ function PlanCard({
   ahorro = 0,
 }: PlanCardProps) {
   return (
-    <div className={`relative flex h-full flex-col ${featured ? "pt-3" : ""}`}>
+    <div className="landing-card relative flex h-full flex-col p-6 sm:p-7">
       {featured ? (
-        <span className="absolute right-4 top-0 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase">
+        <span className="absolute right-4 top-4 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase">
           <Star size={12} aria-hidden />
           Más elegido
         </span>
       ) : null}
 
-      <div
-        className={`landing-card flex h-full flex-col p-6 sm:p-7 ${
-          featured ? "border-violet-300" : ""
-        }`}
-      >
-        <div>
-          <h3 className="text-sm font-bold tracking-wide text-violet-600 uppercase">{titulo}</h3>
-          <p className="mt-1 text-sm text-gray-500">{subtitulo}</p>
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <p className="flex flex-wrap items-baseline gap-1">
-              <span className="text-[clamp(1.85rem,1.5rem+1vw,2.25rem)] font-bold tabular-nums text-gray-900">
-                {formatPrecioArs(precio)}
-              </span>
-              <span className="text-base font-medium text-gray-500">{periodo}</span>
-            </p>
+      <div className={featured ? "pr-24 sm:pr-28" : undefined}>
+        <h3 className="text-sm font-bold tracking-wide text-violet-600 uppercase">{titulo}</h3>
+        <p className="mt-1 text-sm text-gray-500">{subtitulo}</p>
+        <div className="mt-4">
+          <p className="flex flex-wrap items-baseline gap-1">
+            <span className="text-[clamp(1.85rem,1.5rem+1vw,2.25rem)] font-bold tabular-nums text-gray-900">
+              {formatPrecioArs(precio)}
+            </span>
+            <span className="text-base font-medium text-gray-500">{periodo}</span>
+          </p>
+          <div className="mt-2 min-h-7">
             {featured && ahorro > 0 ? (
               <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
                 Ahorrás {formatPrecioArs(ahorro)} (2 meses gratis)
@@ -56,26 +52,26 @@ function PlanCard({
             ) : null}
           </div>
         </div>
-
-        <hr className="my-6 border-gray-100" />
-
-        <ul className="flex flex-1 flex-col gap-3">
-          {PRICING.features.map((feature) => (
-            <li
-              key={feature}
-              className="flex items-start gap-2.5 text-sm leading-snug text-gray-700"
-            >
-              <span
-                className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white"
-                aria-hidden
-              >
-                <Check size={12} strokeWidth={3} aria-hidden />
-              </span>
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
       </div>
+
+      <hr className="my-6 border-gray-100" />
+
+      <ul className="flex flex-1 flex-col gap-3">
+        {PRICING.features.map((feature) => (
+          <li
+            key={feature}
+            className="flex items-start gap-2.5 text-sm leading-snug text-gray-700"
+          >
+            <span
+              className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-600 text-white"
+              aria-hidden
+            >
+              <Check size={12} strokeWidth={3} aria-hidden />
+            </span>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -100,8 +96,8 @@ export function LandingPricing() {
           </p>
         </ScrollReveal>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:gap-8">
-          <ScrollReveal delay={60}>
+        <div className="mx-auto mt-12 grid max-w-5xl items-stretch gap-6 sm:grid-cols-2 lg:gap-8">
+          <ScrollReveal delay={60} className="h-full">
             <PlanCard
               titulo="Mensual"
               subtitulo="Pagás mes a mes"
@@ -109,7 +105,7 @@ export function LandingPricing() {
               periodo="/mes"
             />
           </ScrollReveal>
-          <ScrollReveal delay={120}>
+          <ScrollReveal delay={120} className="h-full">
             <PlanCard
               titulo="Anual"
               subtitulo="Pagás una vez al año"

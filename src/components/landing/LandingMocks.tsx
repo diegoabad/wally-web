@@ -86,3 +86,85 @@ export function ProgramadasScreenshotMock({ className = "" }: MockProps) {
     </div>
   );
 }
+
+const mockPermissions = [
+  { label: "Facturar", active: true },
+  { label: "Clientes", active: true },
+  { label: "Servicios", active: false },
+  { label: "Cobros", active: false },
+  { label: "Programadas", active: true },
+] as const;
+
+export function EquipoColaboradoresMock({ className = "" }: MockProps) {
+  return (
+    <div className={`mx-auto w-full ${className}`}>
+      <BrowserMockFrame url="app.soywally.com.ar/equipo" className="w-full">
+        <div className="p-4 sm:p-5">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-bold text-gray-900 sm:text-base">Colaboradores</p>
+              <p className="mt-0.5 text-[11px] text-gray-500 sm:text-xs">
+                Personas que operan tu cuenta con permisos limitados
+              </p>
+            </div>
+            <span className="inline-flex items-center rounded-lg bg-violet-600 px-2.5 py-1.5 text-[10px] font-semibold text-white sm:text-xs">
+              + Invitar
+            </span>
+          </div>
+
+          <div className="mt-4 space-y-2.5">
+            {[
+              { name: "Mariana L.", email: "mariana@estudio.com", status: "Activo", perms: "Facturar, Clientes" },
+              { name: "Tomás R.", email: "tomas@miempresa.com", status: "Pendiente", perms: "Facturar, Programadas" },
+            ].map((member) => (
+              <div
+                key={member.email}
+                className="rounded-xl border border-gray-200 bg-white p-3 sm:p-3.5"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <p className="truncate text-xs font-semibold text-gray-900 sm:text-sm">
+                      {member.name}{" "}
+                      <span className="font-normal text-gray-400">({member.email})</span>
+                    </p>
+                    <p className="mt-1 text-[10px] text-gray-500 sm:text-xs">Permisos: {member.perms}</p>
+                  </div>
+                  <span
+                    className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px] ${
+                      member.status === "Activo"
+                        ? "bg-emerald-50 text-emerald-700"
+                        : "bg-amber-50 text-amber-700"
+                    }`}
+                  >
+                    {member.status}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/60 p-3 sm:p-3.5">
+            <p className="text-[11px] font-semibold text-gray-900 sm:text-xs">Invitar colaborador</p>
+            <div className="mt-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-[11px] text-gray-400 sm:text-xs">
+              nombre@ejemplo.com
+            </div>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {mockPermissions.map(({ label, active }) => (
+                <span
+                  key={label}
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-semibold sm:text-[11px] ${
+                    active
+                      ? "bg-violet-600 text-white"
+                      : "bg-white text-gray-500 ring-1 ring-gray-200"
+                  }`}
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </BrowserMockFrame>
+    </div>
+  );
+}

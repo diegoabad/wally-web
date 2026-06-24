@@ -140,7 +140,7 @@ export function LandingHero() {
           <p className="text-center text-xs font-semibold leading-snug text-gray-800 sm:text-sm lg:text-base">
             Wally está diseñado para monotributistas que quieren facturar, cobrar y ordenar su negocio
           </p>
-          <ul className="landing-mobile-trust-list mt-4 flex flex-col items-start gap-5 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-8 sm:gap-y-4 lg:gap-x-12">
+          <ul className="landing-mobile-trust-list mt-4 flex flex-col items-start gap-5 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-8 sm:gap-y-4 min-[900px]:flex-nowrap min-[900px]:items-center min-[900px]:justify-center min-[900px]:gap-x-12">
             {trustBarItems.map(({ Icon, title, subtitle, iconClass }) => (
               <li key={title} className="flex items-start gap-2.5 sm:gap-3">
                 <span

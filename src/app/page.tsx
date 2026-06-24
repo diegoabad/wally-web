@@ -18,12 +18,14 @@ import {
   ShieldCheck,
   Smartphone,
   User,
+  UserPlus,
   Zap,
   ArrowRight,
 } from "lucide-react";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { CtaAnchor, CtaLink } from "@/components/CtaButton";
 import { MobileGalleryMock } from "@/components/landing/MobileGalleryMock";
+import { LandingColaboradoresPromo } from "@/components/landing/LandingColaboradoresPromo";
 import { LandingFacturaPreview } from "@/components/landing/LandingFacturaPreview";
 import { LandingHero } from "@/components/landing/LandingHero";
 import { LandingPricing } from "@/components/landing/LandingPricing";
@@ -74,8 +76,14 @@ const resultCards = [
     color: "bg-pink-100 text-pink-700",
   },
   {
+    title: "Invitá colaboradores",
+    body: "Sumá empleados, asistentes o tu contador por email. Facturan y cargan clientes en tu nombre con permisos limitados, sin compartir tu clave fiscal.",
+    Icon: UserPlus,
+    color: "bg-indigo-100 text-indigo-700",
+  },
+  {
     title: "Conectá tus herramientas",
-    body: "Integrá Google Drive, Calendar y Mercado Pago. Invitá colaboradores con permisos limitados para que te ayuden a facturar, cargar clientes o revisar cobros.",
+    body: "Integrá Google Drive, Calendar y Mercado Pago para exportar comprobantes, sincronizar tu agenda y cobrar desde Wally.",
     Icon: ShieldCheck,
     color: "bg-blue-100 text-blue-700",
   },
@@ -241,7 +249,7 @@ const faqs = [
   },
   {
     q: "¿Puedo invitar a alguien para que me ayude con la cuenta?",
-    a: "Sí. Podés sumar colaboradores e invitarlos por email para que operen tu cuenta con permisos limitados — por ejemplo solo facturas, clientes o cobros — sin compartir tu clave fiscal ni darles acceso total.",
+    a: "Sí. Podés invitar colaboradores por email — empleados, asistentes o tu contador — para que operen tu cuenta y facturen en tu nombre con permisos limitados por módulo (facturas, clientes, cobros, etc.), sin compartir tu clave fiscal ni darles acceso total.",
   },
   {
     q: "¿Wally sirve para responsables inscriptos?",
@@ -422,9 +430,19 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
           <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 lg:grid-cols-3 lg:gap-8">
-            {resultCards.map(({ title, body, Icon, color }, index) => (
-              <ScrollReveal key={title} delay={index * 70}>
-                <article className="landing-card h-full p-5 sm:p-7">
+            {resultCards.map(({ title, body, Icon, color }, index) => {
+              const isLoneLastCard =
+                index === resultCards.length - 1 && resultCards.length % 3 === 1;
+
+              return (
+                <ScrollReveal
+                  key={title}
+                  delay={index * 70}
+                  className={isLoneLastCard ? "lg:col-span-3 lg:flex lg:justify-center" : undefined}
+                >
+                  <article
+                    className={`landing-card h-full p-5 sm:p-7 ${isLoneLastCard ? "lg:max-w-md lg:w-full" : ""}`}
+                  >
                   <span
                     className={`inline-flex h-10 w-10 items-center justify-center rounded-xl sm:h-12 sm:w-12 ${color}`}
                   >
@@ -437,7 +455,8 @@ export default function HomePage() {
                   </p>
                 </article>
               </ScrollReveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -501,6 +520,8 @@ export default function HomePage() {
       </section>
 
       <LandingPricing />
+
+      <LandingColaboradoresPromo />
 
       {/* Cómo funciona */}
       <section id="como-funciona" className="scroll-mt-24 bg-white">
