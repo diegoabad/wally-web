@@ -15,7 +15,6 @@ import {
   Lock,
   MessageCircle,
   Shield,
-  ShieldCheck,
   Smartphone,
   User,
   UserPlus,
@@ -80,12 +79,6 @@ const resultCards = [
     body: "Sumá empleados, asistentes o tu contador por email. Facturan y cargan clientes en tu nombre con permisos limitados, sin compartir tu clave fiscal.",
     Icon: UserPlus,
     color: "bg-indigo-100 text-indigo-700",
-  },
-  {
-    title: "Conectá tus herramientas",
-    body: "Integrá Google Drive, Calendar y Mercado Pago para exportar comprobantes, sincronizar tu agenda y cobrar desde Wally.",
-    Icon: ShieldCheck,
-    color: "bg-blue-100 text-blue-700",
   },
 ];
 

@@ -45,7 +45,7 @@ export function LandingFacturaPreview() {
             </CtaLink>
           </ScrollReveal>
 
-          <ScrollReveal className="relative mx-auto w-full max-w-md lg:max-w-lg xl:max-w-xl" delay={100}>
+          <ScrollReveal className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg" delay={100}>
             <div
               className="pointer-events-none absolute -right-6 -top-6 hidden h-40 w-40 rounded-full bg-violet-100/70 blur-3xl min-[900px]:block"
               aria-hidden

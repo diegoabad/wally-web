@@ -15,9 +15,11 @@ export const site = {
 
 export const navLinks = [
   { href: "/#beneficios", label: "Beneficios" },
-  { href: "/#factura", label: "Factura C" },
-  { href: "/#producto", label: "Funciones" },
   { href: "/#precios", label: "Precios" },
+  { href: "/#colaboradores", label: "Colaboradores" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/#producto", label: "Funciones" },
+  { href: "/#factura", label: "Factura C" },
   { href: "/#preguntas", label: "Preguntas frecuentes" },
 ] as const;
 

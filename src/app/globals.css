@@ -132,6 +132,12 @@ html {
     height: 2.875rem;
     max-width: 11rem;
   }
+
+  .landing-mobile-trust-list {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 body {
@@ -232,6 +238,10 @@ body {
   transform: translateY(-3px);
   border-color: rgb(221 214 254);
   box-shadow: 0 6px 16px rgb(104 41 248 / 0.05);
+}
+
+.landing-plan-card {
+  border-color: rgb(221 214 254);
 }
 
 .landing-section-badge {

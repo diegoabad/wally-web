@@ -26,7 +26,7 @@ function PlanCard({
   ahorro = 0,
 }: PlanCardProps) {
   return (
-    <div className="landing-card relative flex h-full flex-col p-6 sm:p-7">
+    <div className="landing-card landing-plan-card relative flex h-full flex-col p-6 sm:p-7">
       {featured ? (
         <span className="absolute right-4 top-4 z-10 inline-flex items-center gap-1 rounded-full bg-violet-600 px-3 py-1 text-[0.65rem] font-bold tracking-wide text-white uppercase">
           <Star size={12} aria-hidden />
@@ -54,7 +54,7 @@ function PlanCard({
         </div>
       </div>
 
-      <hr className="my-6 border-gray-100" />
+      <hr className="mt-6 border-gray-100" />
 
       <ul className="flex flex-1 flex-col gap-3">
         {PRICING.features.map((feature) => (

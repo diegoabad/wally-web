@@ -78,32 +78,32 @@ export function LandingHero() {
 
         <div className="relative grid items-start gap-7 pb-4 sm:gap-10 sm:pb-5 lg:grid-cols-[minmax(0,46%)_minmax(0,54%)] lg:gap-14 lg:pb-7">
           <div className="landing-fade-up landing-mobile-header">
-          <p className="mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-violet-600 px-3 py-1 text-[0.6875rem] font-semibold leading-snug text-white sm:mb-5 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs">
-            <Zap size={12} aria-hidden className="shrink-0 sm:hidden" />
-            <Zap size={14} aria-hidden className="hidden shrink-0 sm:block" />
-            <span className="sm:hidden">Factura C para monotributo</span>
-            <span className="hidden sm:inline">Factura C electrónica para monotributistas en Argentina</span>
-          </p>
+            <p className="mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-violet-600 px-3 py-1 text-[0.6875rem] font-semibold leading-snug text-white sm:mb-5 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-xs">
+              <Zap size={12} aria-hidden className="shrink-0 sm:hidden" />
+              <Zap size={14} aria-hidden className="hidden shrink-0 sm:block" />
+              <span className="sm:hidden">Factura C para monotributo</span>
+              <span className="hidden sm:inline">Factura C electrónica para monotributistas en Argentina</span>
+            </p>
 
-          <h1 className="max-w-xl text-[clamp(1.5rem,1.25rem+1.4vw,2.875rem)] font-bold leading-[1.12] tracking-tight text-gray-900">
-            Emití Factura C, cobrá y controlá tu{" "}
-            <span className="text-violet-600">monotributo</span> desde Wally
-          </h1>
+            <h1 className="max-w-xl text-[clamp(1.5rem,1.25rem+1.4vw,2.875rem)] font-bold leading-[1.12] tracking-tight text-gray-900">
+              Emití Factura C, cobrá y controlá tu{" "}
+              <span className="text-violet-600">monotributo</span> desde Wally
+            </h1>
 
-          <p className="mt-4 max-w-lg text-[0.9375rem] leading-relaxed text-gray-600 sm:mt-5 sm:text-lg">
-            La plataforma online para monotributistas que reúne facturación electrónica ante ARCA,
-            links de cobro con Mercado Pago, facturas programadas, colaboradores con permisos
-            limitados y salud fiscal para{" "}
-            <strong className="font-semibold text-violet-700">trabajar más simple</strong>.
-          </p>
+            <p className="mt-4 max-w-lg text-[0.9375rem] leading-relaxed text-gray-600 sm:mt-5 sm:text-lg">
+              La plataforma online para monotributistas que reúne facturación electrónica ante ARCA,
+              links de cobro con Mercado Pago, facturas programadas, colaboradores con permisos
+              limitados y salud fiscal para{" "}
+              <strong className="font-semibold text-violet-700">trabajar más simple</strong>.
+            </p>
 
-          <div className="mt-6 sm:mt-8">
-            <CtaLink href={site.appUrl} size="lg" block>
-              Probar Wally gratis 30 días
-              <ArrowRight size={18} aria-hidden />
-            </CtaLink>
+            <div className="mt-6 sm:mt-8">
+              <CtaLink href={site.appUrl} size="lg" block>
+                Probar Wally gratis 30 días
+                <ArrowRight size={18} aria-hidden />
+              </CtaLink>
+            </div>
           </div>
-        </div>
 
           <div className="landing-fade-up landing-fade-up-delay-2 relative z-0 w-full self-start lg:max-w-none">
             <div
@@ -140,22 +140,24 @@ export function LandingHero() {
           <p className="text-center text-xs font-semibold leading-snug text-gray-800 sm:text-sm lg:text-base">
             Wally está diseñado para monotributistas que quieren facturar, cobrar y ordenar su negocio
           </p>
-          <ul className="landing-mobile-trust-list mt-4 flex flex-col items-start gap-5 sm:mt-6 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-start sm:justify-start sm:gap-x-8 sm:gap-y-4 min-[900px]:flex-nowrap min-[900px]:items-center min-[900px]:justify-center min-[900px]:gap-x-12">
-            {trustBarItems.map(({ Icon, title, subtitle, iconClass }) => (
-              <li key={title} className="flex items-start gap-2.5 sm:gap-3">
-                <span
-                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10 ${iconClass}`}
-                >
-                  <Icon size={18} strokeWidth={2} aria-hidden className="sm:hidden" />
-                  <Icon size={20} strokeWidth={2} aria-hidden className="hidden sm:block" />
-                </span>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold leading-snug text-gray-900 sm:text-sm">{title}</p>
-                  <p className="mt-0.5 text-[0.6875rem] leading-snug text-gray-500 sm:text-xs">{subtitle}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-4 flex justify-center sm:mt-6">
+            <ul className="landing-mobile-trust-list flex flex-col items-start gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:gap-y-4 min-[900px]:flex-nowrap min-[900px]:gap-x-12">
+              {trustBarItems.map(({ Icon, title, subtitle, iconClass }) => (
+                <li key={title} className="flex items-start gap-2.5 sm:gap-3">
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10 ${iconClass}`}
+                  >
+                    <Icon size={18} strokeWidth={2} aria-hidden className="sm:hidden" />
+                    <Icon size={20} strokeWidth={2} aria-hidden className="hidden sm:block" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold leading-snug text-gray-900 sm:text-sm">{title}</p>
+                    <p className="mt-0.5 text-[0.6875rem] leading-snug text-gray-500 sm:text-xs">{subtitle}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

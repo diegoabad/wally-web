@@ -31,23 +31,42 @@ export function ScrollReveal({
     const element = ref.current;
     if (!element) return;
 
+    const reveal = () => setVisible(true);
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      element.classList.add("landing-reveal--visible");
+      reveal();
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      reveal();
+      return;
+    }
+
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      reveal();
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          reveal();
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
     );
 
     observer.observe(element);
-    return () => observer.disconnect();
+
+    const fallback = window.setTimeout(reveal, 3000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (

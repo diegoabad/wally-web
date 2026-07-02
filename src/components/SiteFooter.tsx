@@ -1,14 +1,6 @@
 import Link from "next/link";
 import { WALLY_LOGO_SRC } from "@/lib/brand";
-import { legalLinks, site, whatsappUrl } from "@/lib/site";
-
-const productLinks = [
-  { href: "/#beneficios", label: "Beneficios" },
-  { href: "/#factura", label: "Factura C" },
-  { href: "/#producto", label: "Funciones" },
-  { href: "/#precios", label: "Precios" },
-  { href: "/#preguntas", label: "Preguntas frecuentes" },
-] as const;
+import { legalLinks, navLinks, site, whatsappUrl } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -48,7 +40,7 @@ export function SiteFooter() {
           <div>
             <p className="text-sm font-semibold text-gray-900">Producto</p>
             <ul className="mt-4 space-y-2.5">
-              {productLinks.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-sm text-gray-600 transition hover:text-violet-700">
                     {link.label}
