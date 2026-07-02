@@ -143,6 +143,25 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  cursor: default;
+}
+
+a {
+  cursor: inherit;
+}
+
+/* Flecha en contenido; mano solo en botones y navegación del header */
+button:not(:disabled),
+.landing-btn-primary,
+.landing-btn-secondary,
+.landing-btn-whatsapp,
+.landing-faq-trigger {
+  cursor: pointer;
+}
+
+.site-header a,
+.site-mobile-drawer a {
+  cursor: pointer;
 }
 
 @keyframes landing-fade-up {

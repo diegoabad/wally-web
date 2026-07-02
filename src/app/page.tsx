@@ -339,7 +339,7 @@ const structuredData = [
     operatingSystem: "Web",
     url: site.url,
     description: site.description,
-    softwareHelp: `${site.url}/#preguntas`,
+    softwareHelp: `${site.url}/#faq`,
     termsOfService: `${site.url}/terminos`,
     privacyPolicy: `${site.url}/privacidad`,
     offers: {
@@ -382,6 +382,12 @@ const structuredData = [
       {
         "@type": "ListItem",
         position: 3,
+        name: "Funciones",
+        item: `${site.url}/#funciones`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
         name: "Precios",
         item: `${site.url}/#precios`,
       },
@@ -454,6 +460,56 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Funciones */}
+      <section id="funciones" className="scroll-mt-24 bg-[#f4f5f7]">
+        <div className="site-container landing-section-block">
+          <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl text-center">
+            <p className="landing-section-badge landing-section-badge--solid">
+              Diseñado para monotributistas
+            </p>
+            <h2 className="landing-section-title mt-4 sm:mt-5">
+              Conocé <span className="text-violet-600">Wally</span> por dentro
+            </h2>
+            <p className="landing-section-lead">
+              Pantallas limpias, acciones visibles y funciones pensadas para emitir, cobrar y
+              controlar tu monotributo.
+            </p>
+          </ScrollReveal>
+
+          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:gap-8">
+            {productInsideCards.map((card, index) => (
+              <ScrollReveal key={card.title} delay={index * 70}>
+                <ProductInsideCard card={card} />
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal className="mx-auto mt-12 flex max-w-xl flex-col items-center text-center sm:mt-14" delay={120}>
+            <CtaLink href={site.appUrl} size="lg" block className="sm:min-w-[17.5rem]">
+              <span className="sm:hidden">Probar gratis 30 días</span>
+              <span className="hidden sm:inline">Probá todas las funciones gratis por 30 días</span>
+              <ArrowRight size={18} aria-hidden className="shrink-0" />
+            </CtaLink>
+            <p className="landing-cta-trust mt-4">
+              <span className="landing-cta-trust__item">
+                <Lock size={14} aria-hidden />
+                Sin tarjeta de crédito
+              </span>
+              <span className="landing-cta-trust__sep" aria-hidden>
+                ·
+              </span>
+              <span className="landing-cta-trust__item">Cancelás cuando quieras</span>
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <LandingFacturaPreview />
+
+      <LandingProgramadasPromo />
+
+      <LandingColaboradoresPromo />
+
       <section className="landing-gradient-section">
         <div className="site-container landing-section-block">
           <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[minmax(0,46%)_minmax(0,54%)] lg:gap-14">
@@ -512,11 +568,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <LandingPricing />
-
-      <LandingColaboradoresPromo />
-
-      {/* Cómo funciona */}
       <section id="como-funciona" className="scroll-mt-24 bg-white">
         <div className="site-container landing-section-block">
           <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl text-center">
@@ -564,56 +615,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Producto */}
-      <section id="producto" className="scroll-mt-24 bg-[#f4f5f7]">
-        <div className="site-container landing-section-block">
-          <ScrollReveal className="landing-mobile-header mx-auto max-w-3xl text-center">
-            <p className="landing-section-badge landing-section-badge--solid">
-              Diseñado para monotributistas
-            </p>
-            <h2 className="landing-section-title mt-4 sm:mt-5">
-              Conocé <span className="text-violet-600">Wally</span> por dentro
-            </h2>
-            <p className="landing-section-lead">
-              Pantallas limpias, acciones visibles y funciones pensadas para emitir, cobrar y
-              controlar tu monotributo.
-            </p>
-          </ScrollReveal>
-
-          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:gap-8">
-            {productInsideCards.map((card, index) => (
-              <ScrollReveal key={card.title} delay={index * 70}>
-                <ProductInsideCard card={card} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal className="mx-auto mt-12 flex max-w-xl flex-col items-center text-center sm:mt-14" delay={120}>
-            <CtaLink href={site.appUrl} size="lg" block className="sm:min-w-[17.5rem]">
-              <span className="sm:hidden">Probar gratis 30 días</span>
-              <span className="hidden sm:inline">Probá todas las funciones gratis por 30 días</span>
-              <ArrowRight size={18} aria-hidden className="shrink-0" />
-            </CtaLink>
-            <p className="landing-cta-trust mt-4">
-              <span className="landing-cta-trust__item">
-                <Lock size={14} aria-hidden />
-                Sin tarjeta de crédito
-              </span>
-              <span className="landing-cta-trust__sep" aria-hidden>
-                ·
-              </span>
-              <span className="landing-cta-trust__item">Cancelás cuando quieras</span>
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <LandingFacturaPreview />
-
-      <LandingProgramadasPromo />
+      <LandingPricing />
 
       {/* FAQ + Contacto */}
-      <section id="preguntas" className="scroll-mt-24 bg-[#f4f5f7]">
+      <section id="faq" className="scroll-mt-24 bg-[#f4f5f7]">
         <div className="site-container grid gap-8 landing-section-block lg:grid-cols-2 lg:gap-12">
           <ScrollReveal className="landing-mobile-header">
             <h2 className="landing-section-title">Preguntas frecuentes</h2>

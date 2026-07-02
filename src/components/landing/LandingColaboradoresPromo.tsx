@@ -1,4 +1,4 @@
-import { ArrowRight, Check, ShieldCheck, UserPlus, Users } from "lucide-react";
+import { ArrowRight, Check, ShieldCheck, Users } from "lucide-react";
 import { CtaLink } from "@/components/CtaButton";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { site } from "@/lib/site";
@@ -8,21 +8,6 @@ const highlights = [
   "Permisos por módulo: facturar, clientes, servicios, cobros o programadas.",
   "Sin compartir tu clave fiscal ni dar acceso total a la cuenta.",
   "Vos seguís siendo titular: modificás permisos o revocás el acceso cuando quieras.",
-] as const;
-
-const useCases = [
-  {
-    title: "Empleados o asistentes",
-    body: "Que carguen clientes y emitan Factura C por vos mientras atendés el negocio.",
-  },
-  {
-    title: "Contador o gestor",
-    body: "Que revise cobros y comprobantes sin pedirte usuario y contraseña.",
-  },
-  {
-    title: "Socio del emprendimiento",
-    body: "Que facture y gestione programadas con los permisos que vos definís.",
-  },
 ] as const;
 
 export function LandingColaboradoresPromo() {
@@ -39,9 +24,9 @@ export function LandingColaboradoresPromo() {
             <span className="text-violet-600">facture en tu nombre</span>
           </h2>
           <p className="landing-section-lead">
-            Sumá empleados, asistentes o tu contador por email. Cada colaborador opera tu cuenta
-            de monotributo con permisos limitados — por ejemplo solo facturas o solo clientes —
-            mientras vos mantenés el control total.
+            Sumá empleados o asistentes por email. Cada colaborador opera tu cuenta de monotributo
+            con permisos limitados — por ejemplo solo facturas o solo clientes — mientras vos
+            mantenés el control total.
           </p>
 
           <ul className="landing-mobile-icon-list mt-7 space-y-3">
@@ -54,21 +39,6 @@ export function LandingColaboradoresPromo() {
               </li>
             ))}
           </ul>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-3 sm:gap-4">
-            {useCases.map(({ title, body }) => (
-              <article
-                key={title}
-                className="rounded-xl border border-gray-100 bg-white/80 p-3.5 sm:p-4"
-              >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-violet-100 text-violet-600">
-                  <UserPlus size={16} aria-hidden />
-                </span>
-                <p className="mt-2.5 text-sm font-bold text-gray-900">{title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-gray-600 sm:text-sm">{body}</p>
-              </article>
-            ))}
-          </div>
 
           <div className="mt-8 flex flex-col items-center gap-3">
             <CtaLink href={site.appUrl} size="lg" block className="max-w-sm min-[900px]:max-w-none">
